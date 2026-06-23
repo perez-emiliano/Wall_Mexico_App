@@ -1,0 +1,302 @@
+/* Reset básico y fondo de la app */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f4f6f9; /* Un gris claro muy limpio */
+  color: #333;
+}
+
+/* Contenedor principal que centra todo */
+.login-container, .register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* La "tarjeta" que simula la pantalla del celular */
+.login-card, .register-card {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 400px; /* Tamaño estándar de pantalla móvil */
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Header y Logo */
+.login-header {
+  margin-bottom: 30px;
+}
+
+.login-logo, .register-logo {
+  height: 80px;
+  width: auto;
+  margin-bottom: 12px;
+}
+
+.login-title, .register-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  color: #1a1a1a;
+  letter-spacing: -0.5px;
+}
+
+.login-subtitle, .register-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0 0 0;
+}
+
+/* Formulario e Inputs */
+.login-form, .register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+}
+
+.input-group input {
+  padding: 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 15px;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+/* Efecto Focus para cuando el usuario edita el campo */
+.input-group input:focus {
+  border-color: #007aff; /* Azul estilo iOS/Moderno */
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+}
+
+/* Acciones secundarias */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -5px;
+}
+
+.forgot-password, .register-link, .login-link {
+  font-size: 13px;
+  color: #007aff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.forgot-password:hover, .register-link:hover {
+  text-decoration: underline;
+}
+
+/* Botón Principal (Call to Action) */
+.btn-primary {
+  background-color: #007aff;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: #0062cc;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* Footer de Registro */
+.login-footer {
+  margin-top: 32px;
+  font-size: 14px;
+  color: #666;
+}
+
+.login-footer p {
+  margin: 0;
+}
+
+/* --- ESTILOS PARA LA PANTALLA DE HOME (ESTILO MÓVIL) --- */
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 450px; /* Limitamos el ancho para simular un celular */
+  margin: 0 auto;
+  background-color: #f8f9fa;
+  box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header Superior */
+.app-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eee;
+  z-index: 10;
+}
+
+.app-header-logo {
+  height: 30px;
+  width: auto;
+}
+
+.app-header-title {
+  font-weight: 700;
+  font-size: 18px;
+  color: #1a1a1a;
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.logout-btn {
+  font-size: 14px;
+  color: #ff3b30; /* Rojo */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Contenido Principal */
+.app-main-content {
+  flex: 1;
+  overflow-y: auto; /* Permite scroll vertical si hay muchas tarjetas */
+  padding: 20px;
+  padding-bottom: 80px; /* Espacio para que el menú de abajo no tape contenido */
+}
+
+.welcome-section h2 {
+  margin: 0 0 5px 0;
+  font-size: 24px;
+}
+
+.welcome-section p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.section-title {
+  font-size: 16px;
+  color: #333;
+  margin: 25px 0 15px 0;
+}
+
+/* Tarjetas del Feed */
+.feed-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.feed-card {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+  position: relative;
+}
+
+.feed-card h4 {
+  margin: 8px 0 4px 0;
+  font-size: 16px;
+  color: #1a1a1a;
+}
+
+.card-company {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.card-location {
+  margin: 8px 0 0 0;
+  font-size: 12px;
+  color: #888;
+}
+
+/* Badges de las tarjetas */
+.card-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.card-badge[data-type="Vacante"] {
+  background-color: #e3f2fd;
+  color: #0d47a1;
+}
+
+.card-badge[data-type="Impulso"] {
+  background-color: #e8f5e9;
+  color: #1b5e20;
+}
+
+/* Barra de Navegación Inferior */
+.app-bottom-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 65px;
+  background-color: #ffffff;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 10;
+}
+
+.nav-item {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 18px;
+  color: #8e8e93;
+  cursor: pointer;
+}
+
+.nav-item span {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.nav-item.active {
+  color: #007aff; /* Azul de la app */
+}
