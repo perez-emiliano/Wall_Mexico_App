@@ -1,8 +1,8 @@
-import logo from '../assets/logo_wm.png';
-import '../App.css';
+import logo from '../../assets/logo_wm.png';
+import '../../App.css';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext'; // Importamos el hook de autenticación
+import { useAuth } from '../../contexts/AuthContext'; // Importamos el hook de autenticación
 
 function Login() {
   const [email, setEmail] = useState('');

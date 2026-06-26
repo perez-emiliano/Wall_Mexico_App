@@ -1,9 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
-import Login from './views/Login';
-import Register from './views/Register';
-import Home from './views/Home';
+import Login from './views/Login/Login';
+import Register from './views/Register/Register';
+import Home from './views/Home/Home';
+import Search from './views/Search/Search';
+import Messages from './views/Messages/Messages';
+import Profile from './views/Profile/Profile';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 
 function App() {
   return (
@@ -11,14 +15,19 @@ function App() {
       <Router>
         <div className="App">
           <Routes>
-            {/* La ruta raíz "/" cargará el Login por defecto */}
+            {/* 1. Redirección inicial y rutas públicas */}
+            <Route path="/" element={<Navigate to="/home" replace/>} />
             <Route path="/login" element={<Login />} />
-            
-            {/* La ruta "/register" cargará la pantalla de registro */}
             <Route path="/register" element={<Register />} />
-
-            {/* La ruta "/register" cargará la pantalla de registro */}
-            <Route path="/home" element={<Home />} />
+            
+            {/* 2. Rutas Protegidas de la aplicación (Todas envueltas) */}
+            <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+            <Route path="/search" element={<ProtectedRoute><Search /></ProtectedRoute>} />
+            <Route path="/messages" element={<ProtectedRoute><Messages /></ProtectedRoute>} />
+            <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+            
+            {/* 3. 🚨 SIEMPRE AL FINAL: Atrapa cualquier ruta desconocida y manda a login */}
+            <Route path="*" element={<Navigate to="/login" replace />} />
           </Routes>
         </div>
       </Router>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+
 /* Reset básico y fondo de la app */
 body {
   margin: 0;
@@ -159,31 +161,49 @@ body {
 .app-header-bar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 15px 20px;
+  justify-content: space-between; 
+  padding: 8px 16px; /* Reducimos un poco el padding vertical para que el header no quede gigante con el logo de 50px */
   background-color: #ffffff;
-  border-bottom: 1px solid #eee;
-  z-index: 10;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.brand-container {
+  display: flex;         /* Fuerza a que el logo y el texto se pongan en la misma línea (fila) */
+  align-items: center;   /* Alinea verticalmente los centros de la 'W' y de las letras */
+  gap: 8px;              /* Controla la distancia horizontal exacta hacia la derecha del logo */
+  margin: 0;
+  padding: 0;
 }
 
 .app-header-logo {
-  height: 30px;
+  height: 50px;        /* ¡Listo! Tu logo a 50px de alto */
   width: auto;
+  object-fit: contain;
+  display: block;      /* Quita el comportamiento de línea que deja aire abajo */
+  margin: 0;
+  padding: 0;
 }
 
 .app-header-title {
-  font-weight: 700;
-  font-size: 18px;
-  color: #1a1a1a;
-  flex-grow: 1;
-  margin-left: 10px;
+  font-family: 'Montserrat', 'Inter', 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 1.6rem;   /* Subimos un poquito el tamaño de la letra para que conserve la proporción con el logo de 50px */
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  margin: 0;           /* Elimina cualquier separación nativa del h1 hacia los lados */
+  padding: 0;
+  line-height: 1;      /* Hace que la caja de texto mida exactamente lo que mide la tipografía */
 }
 
-.logout-btn {
-  font-size: 14px;
-  color: #ff3b30; /* Rojo */
-  text-decoration: none;
-  font-weight: 500;
+.brand-wall {
+  color: #000000; 
+  font-weight: 800; 
+}
+
+.brand-mexico {
+  color: #718096; 
+  font-weight: 400; 
+  margin-left: 4px;    /* Distancia entre 'Wall' y 'México' */
 }
 
 /* Contenido Principal */
@@ -278,6 +298,7 @@ body {
   justify-content: space-around;
   align-items: center;
   z-index: 10;
+  padding-bottom: 5px;
 }
 
 .nav-item {
@@ -297,6 +318,47 @@ body {
   font-weight: 500;
 }
 
-.nav-item.active {
-  color: #007aff; /* Azul de la app */
+/* Estilo para tu nuevo icono */
+.nav-icon {
+  font-size: 1.8rem; /* Controla el tamaño del icono */
+  color: #979696;    /* Color gris para los botones inactivos */
+}
+
+/* Botón de Notificaciones (Extremo derecho) */
+.notification-btn {
+  background: none;
+  border: none;
+  position: relative; /* Necesario para posicionar el punto rojo */
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-icon {
+  font-size: 1.6rem; /* Controla el tamaño del icono */
+  color: #3c403f;    /* Color rojo para la campana */
+}
+
+/* El punto rojo de alerta del mockup */
+.notification-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 7px;
+  height: 7px;
+  background-color: #c60b2a; /* Rojo intenso */
+  border-radius: 50%;
+  border: 1.5px solid #ffffff; /* Pequeño borde blanco para separarlo de la campana */
+}
+
+.nav-icon:hover {
+  color: #c60b2a;    /* Cambia a rojo al pasar el mouse */
+}
+
+/* Si el botón está activo, cambia el color del icono al azul de tu app */
+.nav-item.active .nav-icon {
+  color: #c60b2a;
+  border-top: 2px solid #c60b2a; /* Línea superior para indicar que está activo */
 }

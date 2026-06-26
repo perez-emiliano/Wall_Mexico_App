@@ -1,5 +1,5 @@
-import logo from '../assets/logo_wm.png';
-import '../App.css';
+import logo from '../../assets/logo_wm.png';
+import '../../App.css';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -35,7 +35,7 @@ function Register() {
                 {/*Fromulario de Registro*/}
                 <form onSubmit={HandleRegister} className="register-form">
                     <div className="input-group">
-                        <label htmlFor="name">Nombre Completo / Negocio</label>
+                        <label htmlFor="name">Nombre</label>
                         <input
                             type="text"
                             id="name"
