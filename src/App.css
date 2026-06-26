@@ -210,8 +210,14 @@ body {
 .app-main-content {
   flex: 1;
   overflow-y: auto; /* Permite scroll vertical si hay muchas tarjetas */
+  scrollbar-width: none; /* Para esconder el scrollbar de Firefox */
+  -ms-overflow-style: none; /* Para esconder el scrollbar de Internet Explorer */
   padding: 20px;
   padding-bottom: 80px; /* Espacio para que el menú de abajo no tape contenido */
+}
+
+.app-main-content::-webkit-scrollbar {
+  width: none; /* Para esconder el scrollbar de Chrome, Safari y Opera */
 }
 
 .welcome-section h2 {
