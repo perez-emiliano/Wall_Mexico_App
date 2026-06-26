@@ -7,13 +7,13 @@
   background-color: #ffffff;
   border-radius: 16px;
   padding: 16px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   border: 1px solid #f1f5f9;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   
   /* Layout Horizontal */
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 16px;
   transition: transform 0.2s ease;
 }
@@ -27,12 +27,13 @@
    -------------------------------------------------------------------------- */
 .job-bookmark-btn {
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: 12px;
+  right: 16px; /* Lo movemos un poquito más a la derecha si es necesario */
   background: none;
   border: none;
   cursor: pointer;
   padding: 4px;
+  z-index: 10; /* Asegura que siempre se pueda clickear por encima de todo */
 }
 
 .bookmark-icon {
@@ -138,10 +139,11 @@
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 12px;
+  gap: 6px;
   flex-shrink: 0;
-  align-self: stretch; /* Se estira verticalmente para alinearse perfecto */
-  padding-top: 10px; /* Margen para no chocar con el icono de favoritos */
+  align-self: stretch; 
+  /* 🔥 Aumentamos el colchón superior para que el salario baje y libre el icono */
+  padding-top: 24px; 
 }
 
 .job-card-salary {

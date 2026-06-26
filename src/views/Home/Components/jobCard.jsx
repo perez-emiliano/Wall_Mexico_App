@@ -12,12 +12,6 @@ function JobCard({ job }) {
 
   return (
     <div className="job-card">
-      
-      {/* Botón de favoritos/guardar en la esquina superior derecha */}
-      <button className="job-bookmark-btn" onClick={() => setIsSaved(!isSaved)}>
-        {isSaved ? <HiBookmark className="bookmark-icon active" /> : <HiOutlineBookmark className="bookmark-icon" />}
-      </button>
-
       {/* Bloque Izquierdo: Contiene el logo de la empresa */}
       <div className="job-card-left">
         <div className="job-card-avatar">
@@ -48,6 +42,10 @@ function JobCard({ job }) {
 
       {/* Bloque Derecho: Contiene el precio y el botón de acción */}
       <div className="job-card-right">
+        {/* Botón de favoritos/guardar en la esquina superior derecha */}
+        <button className="job-bookmark-btn" onClick={() => setIsSaved(!isSaved)}>
+          {isSaved ? <HiBookmark className="bookmark-icon active" /> : <HiOutlineBookmark className="bookmark-icon" />}
+        </button>
         <div className="job-card-salary">
           {job.salary || "$30,000 - $50,000"}
         </div>
