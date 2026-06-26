@@ -12,7 +12,7 @@
   align-items: center;
   gap: 12px;
   width: 100%;
-  box-sizing: border-box; /* 💡 Evita que el padding ensanche el contenedor más allá del teléfono */
+  box-sizing: border-box; /* Evita que el padding ensanche el contenedor más allá del teléfono */
   
   /* 🔥 AGREGA ESTAS DOS LÍNEAS PARA DESPEGARLA DE LOS LADOS */
   padding:10px
@@ -37,7 +37,7 @@
 
 /* El campo de texto redondeado gris claro */
 .search-bar-input {
-  width: 100%; /* 🔥 Fuerza al input a estirarse por completo dentro de su wrapper */
+  width: 100%; /* Fuerza al input a estirarse por completo dentro de su wrapper */
   height: 48px;
   padding: 0 16px 0 44px; /* Espacio para la lupa a la izquierda */
   background-color: #f2f2f7;
@@ -47,7 +47,7 @@
   font-weight: 400;
   color: #1c1c1e;
   outline: none;
-  box-sizing: border-box; /* 🔥 CRÍTICO: evita que el width: 100% se desfase por los paddings */
+  box-sizing: border-box; /* CRÍTICO: evita que el width: 100% se desfase por los paddings */
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease;
 }
