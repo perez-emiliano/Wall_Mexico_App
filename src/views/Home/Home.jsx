@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import '../../App.css';
-import JobCard from './components/jobCard'; 
 import { getJobsFromDB } from '../../services/jobService';
 import Header from '../../components/Header/Header';
 import Searchbar from '../../components/Searchbar/Searchbar';
+import Card from '../../components/Card/Card'; 
 import Navbar from '../../components/Navbar/Navbar';
 
 function Home() {
@@ -69,7 +69,7 @@ function Home() {
             <div className="jobs-list">
               {/* Muestra estrictamente las primeras 3 publicaciones */}
               {jobs?.slice(0, 3).map((item) => (
-                <JobCard key={item.id} job={item} />
+                <Card key={item.id} job={item} />
               ))}
             </div>
           )}

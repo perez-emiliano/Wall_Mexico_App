@@ -5,7 +5,7 @@ import './Search.css';
 import Header from '../../components/Header/Header';
 import Navbar from '../../components/Navbar/Navbar';
 import Searchbar from '../../components/Searchbar/Searchbar';
-import JobCard from '../Home/components/jobCard'; 
+import Card from '../../components/Card/Card'; 
 import { getJobsFromDB } from '../../services/jobService';
 
 function Search() {
@@ -95,7 +95,7 @@ function Search() {
           ) : !isSearching ? (
             /* 1️⃣ MODO RECOMENDADOS (Input vacío): Solo muestra las primeras 3 */
             jobs.map((item) => (
-              <JobCard key={item.id} job={item} />
+              <Card key={item.id} job={item} />
             ))
           ) : filteredJobs.length === 0 ? (
             /* 2️⃣ MODO SIN RESULTADOS */
@@ -103,7 +103,7 @@ function Search() {
           ) : (
             /* 3️⃣ MODO RESULTADOS REALES DE BÚSQUEDA */
             filteredJobs.map((item) => (
-              <JobCard key={item.id} job={item} />
+              <Card key={item.id} job={item} />
             ))
           )}
         </div>
