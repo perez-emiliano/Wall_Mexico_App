@@ -1,0 +1,170 @@
+/* ==========================================================================
+   ESTILOS COMPONENTE: JobCard Premium (Layout Horizontal de una Fila)
+   ========================================================================== */
+
+.job-card {
+  position: relative; /* Para poder posicionar el marcador de favorito de forma absoluta */
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 10px;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  
+  /* Layout Horizontal */
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: transform 0.2s ease;
+}
+
+.job-card:active {
+  transform: scale(0.99);
+}
+
+/* --------------------------------------------------------------------------
+   BOTÓN DE FAVORITO (Esquina superior derecha)
+   -------------------------------------------------------------------------- */
+.job-bookmark-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px; /* Lo movemos un poquito más a la derecha si es necesario */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 10; /* Asegura que siempre se pueda clickear por encima de todo */
+}
+
+.bookmark-icon {
+  font-size: 1.35rem;
+  color: #94a3b8;
+  transition: color 0.2s ease;
+}
+
+.bookmark-icon.active {
+  color: #c60b2a; /* Color rojo institucional al activarse */
+}
+
+/* --------------------------------------------------------------------------
+   COLUMNA IZQUIERDA: Logo
+   -------------------------------------------------------------------------- */
+.job-card-left {
+  flex-shrink: 0;
+}
+
+.job-card-avatar {
+  width: 54px;
+  height: 54px;
+  background-color: #f8fafc; /* Fondo gris ultra claro para que resalten los logos */
+  border: 1px solid #e2e8f0;
+  color: #475569;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.job-card-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ajusta la imagen sin deformar logos */
+  padding: 4px; /* Pequeño colchón para que el logo no toque los bordes */
+}
+
+/* --------------------------------------------------------------------------
+   COLUMNA CENTRAL: Meta info del Empleo
+   -------------------------------------------------------------------------- */
+.job-card-center {
+  flex-grow: 1; /* Ocupa todo el espacio restante del centro */
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.job-card-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.job-card-company {
+  font-size: 0.88rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.job-card-location {
+  font-size: 0.82rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  margin-top: 1px;
+}
+
+/* Estrellas y Reviews */
+.job-card-rating {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-top: 2px;
+}
+
+.rating-star-icon {
+  color: #fbbf24; /* Color dorado brillante para las estrellas */
+  font-size: 0.95rem;
+}
+
+.rating-number {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #334155;
+  margin-left: 4px;
+}
+
+.rating-count {
+  font-size: 0.82rem;
+  color: #94a3b8;
+}
+
+/* --------------------------------------------------------------------------
+   COLUMNA DERECHA: Dinero y Botón
+   -------------------------------------------------------------------------- */
+.job-card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 6px;
+  flex-shrink: 0;
+  align-self: stretch; 
+  /* 🔥 Aumentamos el colchón superior para que el salario baje y libre el icono */
+  padding-top: 24px; 
+}
+
+.job-card-salary {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1e293b;
+  white-space: nowrap; /* Evita que el precio se parta en dos renglones */
+}
+
+.job-card-apply-btn {
+  background-color: #c60b2a;
+  color: #ffffff;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.job-card-apply-btn:hover {
+  background-color: #a30821;
+}

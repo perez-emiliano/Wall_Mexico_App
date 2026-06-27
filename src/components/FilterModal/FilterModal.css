@@ -1,0 +1,98 @@
+/* Contenedor del fondo oscuro (Backdrop) */
+.filter-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente */
+  backdrop-filter: blur(3px); /* Efecto blur sutil */
+  z-index: 999;
+  display: flex;
+  align-items: flex-end; /* 🔥 Empuja el modal hacia abajo estilo Spotify */
+}
+
+/* El panel que desliza desde abajo (Bottom Sheet) */
+.filter-sheet {
+  background-color: #ffffff;
+  width: 100%;
+  max-height: 85vh; /* Que no tape toda la pantalla */
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.15);
+  
+  /* Animación de entrada: desliza de abajo hacia arriba */
+  animation: slideUp 0.3s ease-out forwards;
+}
+
+/* Indicador visual arriba para "arrastrar" o cerrar sutilmente */
+.filter-drag-handle {
+  width: 40px;
+  height: 5px;
+  background-color: #e0e0e0;
+  border-radius: 3px;
+  align-self: center;
+  margin-bottom: 8px;
+}
+
+.filter-sheet h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+}
+
+/* Grupos de filtros (Ciudad, Salario, etc.) */
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.filter-select, .filter-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1rem;
+  outline: none;
+  background-color: #f9f9f9;
+}
+
+/* Botón de acción inferior (Estilo Spotify/Aplicar) */
+.filter-apply-btn {
+  background-color: #c60b2a; /* Tu rojo distintivo */
+  color: #ffffff;
+  border: none;
+  padding: 16px;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background 0.2s;
+}
+
+.filter-apply-btn:active {
+  background-color: #a00820; /* Oscurece al presionar en celular */
+}
+
+/* Keyframe para la animación */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

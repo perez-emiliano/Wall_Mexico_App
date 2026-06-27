@@ -1,39 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
+import { useSearch } from '../../contexts/SearchContext'; // Conexión a la antena global
 import '../../App.css';
-import JobCard from './components/jobCard'; 
-import { getJobsFromDB } from '../../services/jobService';
 import Header from '../../components/Header/Header';
 import Searchbar from '../../components/Searchbar/Searchbar';
+
+// 💡 CORREGIDO: Ruta apuntando a los componentes globales
+import FilterModal from '../../components/FilterModal/FilterModal'; 
+import Card from '../../components/Card/Card';
 import Navbar from '../../components/Navbar/Navbar';
 
 function Home() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
-  const [jobs, setJobs] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // Extraemos los controles y datos de la antena global
+  const { 
+    jobs, 
+    loading, 
+    isModalOpen, 
+    setIsModalOpen, 
+    filters, 
+    setFilters, 
+    searchQuery 
+  } = useSearch();
 
+  // Redirección si el usuario escribe en la Home
   useEffect(() => {
-    getJobsFromDB()
-      .then((data) => {
-        setJobs(data || []);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-        setJobs([]);
-        setLoading(false);
-      });
-  }, []);
-
-  // Captura lo que escribes en Home y te redirige a Search con el texto en la URL
-  const handleSearchFromHome = (text) => {
-    if (text.trim()) {
-      navigate(`/search?q=${encodeURIComponent(text)}`);
+    const hasActiveFilters = filters.location !== '' || filters.type !== '' || filters.minSalary !== '';
+    if (hasActiveFilters) {
+      navigate('/search');
     }
-  };
+  }, [filters, navigate]);
 
   const handleLogout = (e) => {
     e.preventDefault();
@@ -45,13 +44,10 @@ function Home() {
     <div className="app-container">
       <Header />
       
-      {/* Mantenemos la barra pura limpia; no almacena estado local aquí */}
-      <Searchbar searchTerm="" onSearchChange={handleSearchFromHome} />
+      <Searchbar />
       
-      {/* Contenido Principal */}
       <main className="app-main-content">
         <div className="feed-container">
-          {/* 💡 CORREGIDO: Contenedor con alineación flex y botón dinámico limpio */}
           <div className="recommended-section-header">
             <h3 className="section-title">Publicaciones recientes</h3>
             {jobs?.length > 3 && (
@@ -67,17 +63,22 @@ function Home() {
             <p className="no-jobs-text">No hay publicaciones disponibles en este momento.</p>
           ) : (
             <div className="jobs-list">
-              {/* Muestra estrictamente las primeras 3 publicaciones */}
               {jobs?.slice(0, 3).map((item) => (
-                <JobCard key={item.id} job={item} />
+                <Card key={item.id} job={item} />
               ))}
             </div>
           )}
         </div>
       </main>
       
-      {/* El Navbar al final, encargado de la navegación */}
       <Navbar />
+
+      <FilterModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onApplyFilters={(nuevosFiltros) => setFilters(nuevosFiltros)}
+        currentFilters={filters}
+      />
     </div>
   );
 }
